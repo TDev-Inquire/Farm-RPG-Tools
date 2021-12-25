@@ -1,25 +1,28 @@
-function doContent(){
-    document.querySelector("#crops > div:nth-child(3) > div:nth-child(1) > span > a").click();
-    document.querySelector("#crops > div:nth-child(3) > div:nth-child(2) > span > a").click();
-    document.querySelector("#crops > div:nth-child(3) > div:nth-child(3) > span > a").click();
-    document.querySelector("#crops > div:nth-child(3) > div:nth-child(4) > span > a").click();
-    document.querySelector("#crops > div:nth-child(4) > div:nth-child(1) > span > a").click();
-    document.querySelector("#crops > div:nth-child(4) > div:nth-child(2) > span > a").click();
-    document.querySelector("#crops > div:nth-child(4) > div:nth-child(3) > span > a").click();
-    document.querySelector("#crops > div:nth-child(4) > div:nth-child(4) > span > a").click();
+function doPlant(){
+    chrome.tabs.executeScript(null, {file: "/PlantHarvest/plant.js"});
 
     };
 
-function doTarget(){
-        document.querySelector("#crops > div:nth-child(3) > div:nth-child(1) > img").click();
-        document.querySelector("#crops > div:nth-child(3) > div:nth-child(2) > img").click();
-        document.querySelector("#crops > div:nth-child(3) > div:nth-child(3) > img").click();
-        document.querySelector("#crops > div:nth-child(3) > div:nth-child(4) > img").click();
-        document.querySelector("#crops > div:nth-child(4) > div:nth-child(1) > img").click();
-        document.querySelector("#crops > div:nth-child(4) > div:nth-child(2) > img").click();
-        document.querySelector("#crops > div:nth-child(4) > div:nth-child(3) > img").click();
-        document.querySelector("#crops > div:nth-child(4) > div:nth-child(4) > img").click();
+function doHarvest(){
+    chrome.tabs.executeScript(null, {file: "/PlantHarvest/harvest.js"});
+    };
+
+function doAuto(){
+    chrome.tabs.executeScript(null, {file: "/PlantHarvest/AutoFarm.js"});
     };
     
-    document.getElementById("btnSource").onclick = doContent;
-    document.getElementById("btnTarget").onclick = doTarget;
+    
+    document.getElementById("btnPlant").onclick = doPlant;
+    document.getElementById("btnHarvest").onclick = doHarvest;
+
+    if($("#repeat").is(':checked')){
+        // Code in the case checkbox is checked.
+        function doRepeat(){
+            chrome.tabs.executeScript(null, {file: "/PlantHarvest/AutoFarm.js"});
+            };
+        
+   } else {
+        // Code in the case checkbox is NOT checked.
+   }
+     // unchecked
+    
