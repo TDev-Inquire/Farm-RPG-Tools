@@ -25,7 +25,7 @@ function harvestCrops() {
 
 */
 
-var time = document.querySelector("#timer")
+var repeatTime = document.querySelector("#timer")
 
 setInterval(function () {
 if (a < b) {
@@ -62,5 +62,17 @@ else {
 
 }
 
-}, time
+}, repeatTime
 )
+
+var interval;
+
+function TryApiPing() {
+  x = document.querySelector("#repeat").checked;
+  if (x) {
+    //makemagichappen
+    interval = setInterval(apiping, repeatTime);
+  } else {
+    clearInterval(interval);
+  }
+}

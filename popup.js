@@ -11,9 +11,14 @@ function doAuto(){
     chrome.tabs.executeScript(null, {file: "/PlantHarvest/AutoFarm.js"});
     };
     
+function doFish(){
+    chrome.tabs.executeScript(null, {file: "/PlantHarvest/fish.js"});
+    };
+    
     
     document.getElementById("btnPlant").onclick = doPlant;
     document.getElementById("btnHarvest").onclick = doHarvest;
+    document.getElementById("btnFish").onclick = doFish;
 
     if($("#repeat").is(':checked')){
         // Code in the case checkbox is checked.
